@@ -24,9 +24,7 @@ public abstract class AKI implements IKiPlugin {
     private TimerTask timertask;
     private boolean isWorking;
 
-    protected boolean isWorking() {
-        return isWorking;
-    }
+
 
     protected void setWorking(boolean isWorking) {
         this.isWorking = isWorking;

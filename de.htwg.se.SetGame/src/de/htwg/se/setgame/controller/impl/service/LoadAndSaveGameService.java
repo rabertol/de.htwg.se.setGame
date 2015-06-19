@@ -1,5 +1,11 @@
 package de.htwg.se.setgame.controller.impl.service;
 
+import akka.actor.ActorRef;
+import akka.actor.Props;
+import de.htwg.se.setgame.controller.impl.aktoren.Listener;
+import de.htwg.se.setgame.controller.impl.aktoren.SaveGame;
+import de.htwg.se.setgame.controller.impl.aktoren.SaveGameMaster;
+import de.htwg.se.setgame.controller.impl.aktoren.SystemOfAkka;
 import de.htwg.se.setgame.model.ICard;
 import de.htwg.se.setgame.model.IGame;
 import de.htwg.se.setgame.model.IModelFactory;
@@ -51,10 +57,13 @@ public class LoadAndSaveGameService {
         game.setCardsInField(cardsInField);
         game.setUnusedCards(unusedCards);
         IGameDao dao = this.gameDao;
+        final ActorRef listener = SystemOfAkka.getSystem().actorOf(Props.create(Listener.class), "listener");
+        ActorRef master = SystemOfAkka.getSystem().actorOf(Props.create(SaveGameMaster.class, listener), "master");
+        master.tell(new SaveGame(gameDao, game), ActorRef.noSender());
 
-        dao.createOrUpdateGame(game);
+      /*  dao.createOrUpdateGame(game);
 
-        dao.closeDb();
+        dao.closeDb();*/
         return  game.getId();
 
     }

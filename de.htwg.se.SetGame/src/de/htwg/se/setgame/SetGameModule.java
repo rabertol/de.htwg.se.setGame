@@ -11,7 +11,7 @@ import de.htwg.se.setgame.controller.impl.ki.KIMedium;
 import de.htwg.se.setgame.model.IModelFactory;
 import de.htwg.se.setgame.model.impl.ModelFactory;
 import de.htwg.se.setgame.util.persistence.IGameDao;
-import de.htwg.se.setgame.util.persistence.db4o.GameDao;
+import de.htwg.se.setgame.util.persistence.couchdb.GameDao;
 
 
 public class SetGameModule extends AbstractModule {

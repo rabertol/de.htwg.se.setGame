@@ -10,7 +10,6 @@ public class AktorenTest {
 
     @Test
     public void tryGreeting(){
-        MySystem.initiateSystem();
-        MySystem.startingGreeting();
+
     }
 }
