@@ -352,7 +352,8 @@ public class SetController extends Observable implements IController {
             }
         }
     }
-
+    public void dummybinich(){// only for commits
+     }
     /* (non-Javadoc)
      * @see de.htwg.se.setgame.controller.impl.ISuperController#getASetInGame()
      */

@@ -30,6 +30,7 @@ public class Card extends ACard {
 
 	}
 
+
 	/*
 	 * (non-Javadoc)
 	 * 
