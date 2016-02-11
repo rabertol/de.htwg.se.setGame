@@ -3,19 +3,24 @@ package de.htwg.se.setgame.controller.impl;
 
 import java.util.*;
 
+import akka.actor.ActorRef;
+
 import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.controller.IPlugin;
+import de.htwg.se.setgame.controller.aktoren.LoadGame;
+
+import de.htwg.se.setgame.controller.aktoren.SystemOfAkka;
 import de.htwg.se.setgame.controller.impl.logic.impl.GameProvider;
+
 import de.htwg.se.setgame.controller.impl.logic.impl.PackProvider;
 import de.htwg.se.setgame.model.*;
-import de.htwg.se.setgame.model.impl.Game;
-import de.htwg.se.setgame.model.impl.Pack;
-import de.htwg.se.setgame.model.impl.Player;
+
 import de.htwg.se.setgame.util.observer.Observable;
 import de.htwg.se.setgame.controller.impl.ki.KILevel;
 import de.htwg.se.setgame.util.persistance.IGameDao;
+
 
 
 /**
@@ -76,15 +81,17 @@ public class SetController extends Observable implements IController {
      */
     private final Set<IPlugin> kiPlugins;
 
-
+    private final List<ICard> newPack;
     private IGameDao gameDao;
+    private IModelFactory modelFactory;
     /**
-     * Logic Construct make for the game a new field with a new pack!!!
+     * gic Construct make for the game a new field with a new pack!!!
      */
     @Inject
     public SetController(IModelFactory modelFactory, Set<IPlugin> kiPlugins, IGameDao gameDao) {
         this.kiPlugins = kiPlugins;
         this.gameProvider = new GameProvider(modelFactory, 12);
+        this.newPack = gameProvider.getiPack().getPack();
         this.counter = 0;
         this.gameProvider.startUp();
         this.playerOne = 1;
@@ -92,6 +99,8 @@ public class SetController extends Observable implements IController {
         this.playerOneCounter = 0;
         this.playerTwoCounter = 0;
         this.gameDao = gameDao;
+        this.modelFactory = modelFactory;
+
         checkIfIsASeTInGame();
     }
 
@@ -469,30 +478,22 @@ public class SetController extends Observable implements IController {
         game.setGameToken(token);
         gameDao.createOrUpdate(game);
         System.out.println("TOKEN = "+ token);
+        gameDao.closeDb();
+
 
 
 
     }
 
     @Override
-    public void loadGame(String id) {
-        IGame game = gameDao.findGame(id);
-        if(game == null){
+    public void loadGame(String id)  {
 
-        } else {
-            this.gameProvider.getCardInFieldGame().clear();
-            this.gameProvider.getUnusedCards().clear();
-            this.gameProvider.getCardsInField().clear();
-            this.counter = 0;
-            this.playerOneCounter = game.getPlayerOne().getCounter();
-            this.playerTwoCounter = game.getPlayerTwo().getCounter();
-            this.gameProvider.getField().setCardInField(game.getCardInField());
-            this.gameProvider.getiPack().setPack(game.getUnusedCards());
-            this.token = game.getToken();
-            notifyObservers();
-        }
+        SystemOfAkka.getMaster().tell(new LoadGame(id, gameDao, this), ActorRef.noSender());
+
+
 
     }
+
 
     @Override
     public void setKiPlayer(KILevel level){
@@ -506,5 +507,28 @@ public class SetController extends Observable implements IController {
         }
 
     }
+
+    @Override
+    public void setGameForActor(IGame game) {
+        this.gameProvider.getCardInFieldGame().clear();
+        this.gameProvider.getUnusedCards().clear();
+        this.gameProvider.getCardsInField().clear();
+        this.counter = 0;
+        this.playerOneCounter = game.getPlayerOne().getCounter();
+        this.playerTwoCounter = game.getPlayerTwo().getCounter();
+        this.gameProvider.getField().setCardInField(game.getCardInField());
+        this.gameProvider.getiPack().setPack(game.getUnusedCards());
+        this.token = game.getToken();
+        gameDao.closeDb();
+        notifyObservers();
+    }
+
+    @Override
+    public List<ICard> getNewPack() {
+        PackProvider pk = new PackProvider(modelFactory);
+
+        return pk.getCardsInpack();
+    }
+
 
 }

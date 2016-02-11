@@ -5,6 +5,7 @@ import java.util.Map;
 
 import de.htwg.se.setgame.model.ICard;
 import de.htwg.se.setgame.model.IField;
+import de.htwg.se.setgame.model.IGame;
 import de.htwg.se.setgame.model.IPack;
 import de.htwg.se.setgame.controller.impl.ki.KILevel;
 
@@ -115,6 +116,6 @@ public interface IController extends IObservable {
 	 * set Ki Level
 	 */
 	void setKiPlayer(KILevel level);
-
-
+	void setGameForActor(IGame game);
+	List<ICard> getNewPack();
 }

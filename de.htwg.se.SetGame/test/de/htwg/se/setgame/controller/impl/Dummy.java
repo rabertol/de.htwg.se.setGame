@@ -4,6 +4,7 @@ import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.controller.impl.ki.KILevel;
 import de.htwg.se.setgame.model.ICard;
 import de.htwg.se.setgame.model.IField;
+import de.htwg.se.setgame.model.IGame;
 import de.htwg.se.setgame.model.IPack;
 import de.htwg.se.setgame.util.observer.Observable;
 
@@ -104,5 +105,15 @@ public class Dummy extends Observable implements IController {
     @Override
     public void setKiPlayer(KILevel level) {
 
+    }
+
+    @Override
+    public void setGameForActor(IGame game) {
+
+    }
+
+    @Override
+    public List<ICard> getNewPack() {
+        return null;
     }
 }

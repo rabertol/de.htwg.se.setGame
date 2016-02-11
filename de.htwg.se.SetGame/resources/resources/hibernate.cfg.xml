@@ -7,7 +7,7 @@
         <!-- Database connection properties - Driver, URL, user, password -->
         <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://192.168.1.38:3306/setgame?createDatabaseIfNotExist=true</property>
+        <property name="connection.url">jdbc:mysql://198.168.1.38:3306/setgame?createDatabaseIfNotExist=true</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
