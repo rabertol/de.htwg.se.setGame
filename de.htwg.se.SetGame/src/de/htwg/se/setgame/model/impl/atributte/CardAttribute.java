@@ -13,7 +13,7 @@ public final class CardAttribute {
 
     }
     public static Map<String,List<String>> attributeNameAndFeature;
-    public int FIELDSIZE = 12;
+    public static int FIELDSIZE = 1;
     private static final String[] FORM = { "ovally", "wave", "balk" };
     private static final String[] COLORS = { "red", "green", "purple" };
     private static final String[] FILL = { "halffill", "fill", "empty" };
@@ -24,6 +24,10 @@ public final class CardAttribute {
         addNewAttribute(COLORS, "COLORS");
         addNewAttribute(FILL, "FILL");
         addNewAttribute(NUMBEROFCOMPONET, "NUMBEROFCOMPONET");
+        addToFieldSize(FORM);
+        addToFieldSize(FILL);
+        addToFieldSize(COLORS);
+        addToFieldSize(NUMBEROFCOMPONET);
 
     }
     private static void addNewAttribute(String[] array,String name){
@@ -34,6 +38,9 @@ public final class CardAttribute {
         for(String v : array){
             attributeNameAndFeature.get(name).add(v);
         }
+    }
+    private static void addToFieldSize(String[] array){
+        FIELDSIZE = FIELDSIZE * array.length;
     }
 
 }

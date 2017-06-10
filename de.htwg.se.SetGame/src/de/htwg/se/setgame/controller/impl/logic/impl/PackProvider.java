@@ -16,7 +16,6 @@ import java.util.List;
 public class PackProvider {
 
 
-    private static final int SIZEOFARRAY = 50;
 
 
     /*Instance variable*/
@@ -46,12 +45,12 @@ public class PackProvider {
      * @return the finish pack of the Game
      */
     private ICard[] creatCards() {
-        ICard list[] = new ICard[SIZEOFARRAY];
+        ICard list[] = new ICard[CardAttribute.FIELDSIZE];
 
         //TODO: Change Pack Provider!!!
 
 
-        for (int i = 0; i < SIZEOFARRAY; i++) {
+        for (int i = 0; i < CardAttribute.FIELDSIZE; i++) {
             list[i] = modelFactory.createCard();
             list[i].setColor(CardAttribute.attributeNameAndFeature.get("COLORS").get(colorIndex));
             list[i].setForm(CardAttribute.attributeNameAndFeature.get("FORM").get(formeIndex));
