@@ -2,7 +2,7 @@ package de.htwg.se.setgame.model.impl;
 
 import de.htwg.se.setgame.model.AField;
 import de.htwg.se.setgame.model.ICard;
-import de.htwg.se.setgame.model.impl.atributte.CardAtributen;
+import de.htwg.se.setgame.model.impl.atributte.CardAttribute;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +18,7 @@ import java.util.TreeSet;
  */
 public class Field extends AField {
     private static final int NUMBERFORONELINE = 3;
-    private static final int LEGHTFORSTRING = CardAtributen.FILL[0].length();
+    private static final int LEGHTFORSTRING = CardAttribute.FILL[0].length();
     private Map<Integer, ICard> cardsInField;
     private Set<Integer> listeofcontains;
 

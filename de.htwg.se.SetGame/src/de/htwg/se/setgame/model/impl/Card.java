@@ -2,7 +2,7 @@ package de.htwg.se.setgame.model.impl;
 
 import de.htwg.se.setgame.model.ACard;
 import de.htwg.se.setgame.model.ICard;
-import de.htwg.se.setgame.model.impl.atributte.CardAtributen;
+import de.htwg.se.setgame.model.impl.atributte.CardAttribute;
 
 /**
  * @author David Simon & Raina Bertolini
@@ -36,8 +36,8 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setColor(String color) {
-		if (color.equals(CardAtributen.COLORS[0]) || color.equals(CardAtributen.COLORS[1])
-				|| color.equals(CardAtributen.COLORS[2])) {
+		if (color.equals(CardAttribute.COLORS[0]) || color.equals(CardAttribute.COLORS[1])
+				|| color.equals(CardAttribute.COLORS[2])) {
 			this.color = color;
 		} else {
 			this.color = null;
@@ -63,8 +63,8 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setForm(String form) {
-		if (form.equals(CardAtributen.FORME[2]) || form.equals(CardAtributen.FORME[0])
-				|| form.equals(CardAtributen.FORME[1])) {
+		if (form.equals(CardAttribute.FORM[2]) || form.equals(CardAttribute.FORM[0])
+				|| form.equals(CardAttribute.FORM[1])) {
 			this.form = form;
 		} else {
 			this.form = null;
@@ -89,9 +89,9 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setPanelFilling(String panelFilling) {
-		if (panelFilling.equals(CardAtributen.FILL[0])
-				|| panelFilling.equals(CardAtributen.FILL[1])
-				|| panelFilling.equals(CardAtributen.FILL[2])) {
+		if (panelFilling.equals(CardAttribute.FILL[0])
+				|| panelFilling.equals(CardAttribute.FILL[1])
+				|| panelFilling.equals(CardAttribute.FILL[2])) {
 			this.panelFilling = panelFilling;
 		} else {
 			this.panelFilling = null;
@@ -115,9 +115,9 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setNumberOfComponents(int numberOfComponents) {
-		if (numberOfComponents == CardAtributen.NUMBEROFCOMPONET[0]
-				|| numberOfComponents == CardAtributen.NUMBEROFCOMPONET[1]
-				|| numberOfComponents == CardAtributen.NUMBEROFCOMPONET[2]) {
+		if (numberOfComponents == CardAttribute.NUMBEROFCOMPONET[0]
+				|| numberOfComponents == CardAttribute.NUMBEROFCOMPONET[1]
+				|| numberOfComponents == CardAttribute.NUMBEROFCOMPONET[2]) {
 			this.anz = numberOfComponents;
 
 		} else {
