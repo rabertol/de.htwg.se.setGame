@@ -30,13 +30,13 @@ public class PersistentGameTest {
         Collection<PersistentCard> cardsInField = new ArrayList<PersistentCard>();
         PersistentCard cardfield = new PersistentCard();
         cardfield.setColor("red");
-        cardfield.setNumberOfComponents(1);
+        cardfield.setNumberOfComponents("1");
         cardfield.setForm("wave");
         cardfield.setPanelFilling("fill");
         cardsInField.add(cardfield);
         PersistentCard card = new PersistentCard();
         card.setColor("green");
-        card.setNumberOfComponents(1);
+        card.setNumberOfComponents("1");
         card.setForm("wave");
         card.setPanelFilling("fill");
         Collection<PersistentCard> unusedCards = new ArrayList<PersistentCard>();

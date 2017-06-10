@@ -24,7 +24,7 @@ public class PackTest {
         ICard card = modelFactory.createCard();
         card.setColor("red");
         card.setForm("wave");
-        card.setNumberOfComponents(1);
+        card.setNumberOfComponents("1");
         card.setPanelFilling("fill");
         list.add(card);
     }

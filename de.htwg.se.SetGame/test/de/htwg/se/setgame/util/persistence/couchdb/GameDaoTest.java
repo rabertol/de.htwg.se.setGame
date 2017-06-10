@@ -40,14 +40,14 @@ public class GameDaoTest {
         Map<Integer, ICard> cardsInField = new HashMap<Integer, ICard>();
         ICard cardfield = modelFactory.createCard();
         cardfield.setColor("red");
-        cardfield.setNumberOfComponents(1);
+        cardfield.setNumberOfComponents("1");
         cardfield.setForm("wave");
         cardfield.setPanelFilling("fill");
         cardsInField.put(0, cardfield);
 
         ICard card = modelFactory.createCard();
         card.setColor("green");
-        card.setNumberOfComponents(1);
+        card.setNumberOfComponents("1");
         card.setForm("wave");
         card.setPanelFilling("fill");
 

@@ -22,12 +22,12 @@ public class PersistenceCardTest {
         this.target.setColor("red");
         this.target.setForm("wave");
         this.target.setPanelFilling("fill");
-        this.target.setNumberOfComponents(2);
+        this.target.setNumberOfComponents("2");
         this.card = new Card();
         this.card.setColor("red");
         this.card.setForm("wave");
         this.card.setPanelFilling("fill");
-        this.card.setNumberOfComponents(2);
+        this.card.setNumberOfComponents("2");
     }
 
     @Test
@@ -51,7 +51,7 @@ public class PersistenceCardTest {
         Assert.assertTrue(target.getColor().equals("red"));
         Assert.assertTrue(target.getForm().equals("wave"));
         Assert.assertTrue(target.getPanelFilling().equals("fill"));
-        Assert.assertTrue(target.getNumberOfComponents() == 2);
+        Assert.assertTrue(target.getNumberOfComponents().equals("2"));
         Assert.assertTrue(target.compareTo(card));
         Assert.assertTrue(target.toString() != null);
 
@@ -61,40 +61,13 @@ public class PersistenceCardTest {
 
     }
 
-    @Test
-    public void createPersistenceCard_fail() {
-        this.target.setColor("yellowSubmarino");
-        this.target.setForm("uhla-uhla");
-        this.target.setPanelFilling("fillBurNotFill");
-        this.target.setNumberOfComponents(100);
-        Session session = SessionServiceHibernate.getSession();
-        Transaction transaction = null;
-        try {
 
-            transaction = session.beginTransaction();
-            session.saveOrUpdate(target);
-
-        } catch (HibernateException ex) {
-            //it should give a exception!!!
-            Assert.assertTrue(true);
-        }
-
-        Assert.assertTrue(target.getCardID() == null);
-        Assert.assertTrue(target.getColor() == null);
-        Assert.assertTrue(target.getForm() == null);
-        Assert.assertTrue(target.getPanelFilling() == null);
-        Assert.assertTrue(target.getNumberOfComponents() == -1);
-
-        transaction.rollback();
-        session.close();
-
-    }
     @Test
     public void createPersistenceCardCompareTo_false() {
         this.target.setColor("red");
         this.target.setForm("balk");
         this.target.setPanelFilling("fill");
-        this.target.setNumberOfComponents(2);
+        this.target.setNumberOfComponents("2");
         Session session = SessionServiceHibernate.getSession();
         Transaction transaction = null;
         try {

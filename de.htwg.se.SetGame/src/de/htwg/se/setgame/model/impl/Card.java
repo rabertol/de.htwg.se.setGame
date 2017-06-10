@@ -13,7 +13,7 @@ public class Card extends ACard {
 	private String color;
 	private String form;
 	private String panelFilling;
-	private int anz;
+	private String anz;
 
 
     public Card(){
@@ -36,12 +36,9 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setColor(String color) {
-		if (color.equals(CardAttribute.COLORS[0]) || color.equals(CardAttribute.COLORS[1])
-				|| color.equals(CardAttribute.COLORS[2])) {
+
 			this.color = color;
-		} else {
-			this.color = null;
-		}
+
 
 	}
 
@@ -63,12 +60,8 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setForm(String form) {
-		if (form.equals(CardAttribute.FORM[2]) || form.equals(CardAttribute.FORM[0])
-				|| form.equals(CardAttribute.FORM[1])) {
 			this.form = form;
-		} else {
-			this.form = null;
-		}
+
 	}
 
 	/*
@@ -89,13 +82,9 @@ public class Card extends ACard {
 	 */
     @Override
 	public void setPanelFilling(String panelFilling) {
-		if (panelFilling.equals(CardAttribute.FILL[0])
-				|| panelFilling.equals(CardAttribute.FILL[1])
-				|| panelFilling.equals(CardAttribute.FILL[2])) {
+
 			this.panelFilling = panelFilling;
-		} else {
-			this.panelFilling = null;
-		}
+
 
 	}
 
@@ -104,7 +93,7 @@ public class Card extends ACard {
 	 * 
 	 * @see de.htwg.se.setgame.modell.impl.ICard#getNumberOfComponents()
 	 */
-	public int getNumberOfComponents() {
+	public String getNumberOfComponents() {
 		return anz;
 	}
 
@@ -114,15 +103,11 @@ public class Card extends ACard {
 	 *             if numberOfComponents is not allowed
 	 */
     @Override
-	public void setNumberOfComponents(int numberOfComponents) {
-		if (numberOfComponents == CardAttribute.NUMBEROFCOMPONET[0]
-				|| numberOfComponents == CardAttribute.NUMBEROFCOMPONET[1]
-				|| numberOfComponents == CardAttribute.NUMBEROFCOMPONET[2]) {
+	public void setNumberOfComponents(String numberOfComponents) {
+
 			this.anz = numberOfComponents;
 
-		} else {
-			this.anz = -1;
-		}
+
 	}
 
 	/*
@@ -143,7 +128,7 @@ public class Card extends ACard {
 	@Override
 	public boolean compareTo(ICard card) {
 
-		if (this.color.equals(card.getColor()) && this.anz == card.getNumberOfComponents()
+		if (this.color.equals(card.getColor()) && this.anz.equals(card.getNumberOfComponents())
 				&& this.form.equals(card.getForm())
 				&& this.panelFilling.equals(card.getPanelFilling())) {
 			return true;

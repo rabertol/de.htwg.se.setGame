@@ -18,7 +18,7 @@ import java.util.TreeSet;
  */
 public class Field extends AField {
     private static final int NUMBERFORONELINE = 3;
-    private static final int LEGHTFORSTRING = CardAttribute.FILL[0].length();
+    private static final int LEGHTFORSTRING = CardAttribute.attributeNameAndFeature.size();
     private Map<Integer, ICard> cardsInField;
     private Set<Integer> listeofcontains;
 

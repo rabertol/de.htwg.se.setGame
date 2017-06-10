@@ -13,7 +13,6 @@ import org.junit.Test;
 public class PackProviderTest {
 
 
-    public static final String[] FORME = {"ovally", "wave", "balk"};
     private PackProvider target;
 
     @Test
@@ -22,18 +21,18 @@ public class PackProviderTest {
         boolean b = false;
 
         for (ICard cards : target.getPack().getPack()) {
-            if (cards.getColor().equals(CardAttribute.COLORS[0])
-                    || cards.getColor().equals(CardAttribute.COLORS[1])
-                    || cards.getColor().equals(CardAttribute.COLORS[2])
-                    && cards.getForm().equals(CardAttribute.FORM[0])
-                    || cards.getForm().equals(CardAttribute.FORM[1])
-                    || cards.getForm().equals(CardAttribute.FORM[2])
-                    && cards.getPanelFilling().equals(CardAttribute.FILL[0])
-                    || cards.getPanelFilling().equals(CardAttribute.FILL[1])
-                    || cards.getPanelFilling().equals(CardAttribute.FILL[2])
-                    && cards.getNumberOfComponents() == 1
-                    || cards.getNumberOfComponents() == 2
-                    || cards.getNumberOfComponents() == 3) {
+            if (cards.getColor().equals(CardAttribute.attributeNameAndFeature.get("COLORS").get(0))
+                    || cards.getColor().equals(CardAttribute.attributeNameAndFeature.get("COLORS").get(1))
+                    || cards.getColor().equals(CardAttribute.attributeNameAndFeature.get("COLORS").get(2))
+                    && cards.getForm().equals(CardAttribute.attributeNameAndFeature.get("FORM").get(0))
+                    || cards.getForm().equals(CardAttribute.attributeNameAndFeature.get("FORM").get(1))
+                    || cards.getForm().equals(CardAttribute.attributeNameAndFeature.get("FORM").get(2))
+                    && cards.getPanelFilling().equals(CardAttribute.attributeNameAndFeature.get("FILL").get(0))
+                    || cards.getPanelFilling().equals(CardAttribute.attributeNameAndFeature.get("FILL").get(1))
+                    || cards.getPanelFilling().equals(CardAttribute.attributeNameAndFeature.get("FILL").get(2))
+                    && cards.getNumberOfComponents().equals((CardAttribute.attributeNameAndFeature.get("NUMBEROFCOMPONET").get(0)))
+                    || cards.getNumberOfComponents().equals((CardAttribute.attributeNameAndFeature.get("NUMBEROFCOMPONET").get(1)))
+                    || cards.getNumberOfComponents().equals((CardAttribute.attributeNameAndFeature.get("NUMBEROFCOMPONET").get(2)))) {
                 b = true;
             } else {
                 b = false;

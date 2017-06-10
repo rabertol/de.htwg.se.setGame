@@ -19,9 +19,9 @@ public class CardAtributteTest {
     }
     @Test
     public void getDaoManagerSession_ok(){
-        String[] FORME = CardAttribute.FORM;
-        String[] COLORS = CardAttribute.COLORS;
-       String[] FILL = CardAttribute.FILL;
+        String[] FORME = (String[])CardAttribute.attributeNameAndFeature.get("FORM").toArray();
+        String[] COLORS = (String[])CardAttribute.attributeNameAndFeature.get("COLORS").toArray();
+       String[] FILL =(String[])CardAttribute.attributeNameAndFeature.get("FILL").toArray();
         Assert.assertTrue(FORME != null);
         Assert.assertTrue(COLORS != null);
         Assert.assertTrue(FILL != null);

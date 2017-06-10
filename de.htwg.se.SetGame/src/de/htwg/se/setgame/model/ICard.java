@@ -25,7 +25,7 @@ public interface ICard {
 	 /**
 	 * @return number of components
 	 */
-	int getNumberOfComponents();
+	String getNumberOfComponents();
 
 	 /**
 	 * @return srintg methode
@@ -48,7 +48,7 @@ public interface ICard {
      *
      * @param numberOfComponents number of components
      */
-    void setNumberOfComponents(int numberOfComponents);
+    void setNumberOfComponents(String numberOfComponents);
 
     /**
      *

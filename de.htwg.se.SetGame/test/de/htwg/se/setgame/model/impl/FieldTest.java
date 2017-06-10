@@ -26,7 +26,7 @@ public class FieldTest {
         ICard card = modelFactory.createCard();
         card.setColor("red");
         card.setForm("wave");
-        card.setNumberOfComponents(1);
+        card.setNumberOfComponents("1");
         card.setPanelFilling("fill");
 
         list.put(0, card);
@@ -36,9 +36,10 @@ public class FieldTest {
     }
     private ICard createCard(){
         Card card1 = new Card();
-        card1.setColor(CardAttribute.COLORS[2]);
-        card1.setForm(CardAttribute.FORM[1]);
-        card1.setPanelFilling(CardAttribute.FILL[1]);
+        card1.setColor(CardAttribute.attributeNameAndFeature.get("COLORS").get(2));
+        card1.setForm(CardAttribute.attributeNameAndFeature.get("FORM").get(1));
+        card1.setPanelFilling(CardAttribute.attributeNameAndFeature.get("FILL").get(1));
+        card1.setNumberOfComponents(CardAttribute.attributeNameAndFeature.get("NUMBEROFCOMPONET").get(0));
         return card1;
     }
     @Test

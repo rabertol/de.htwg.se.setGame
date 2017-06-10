@@ -37,19 +37,8 @@ public class SetService {
      */
     public boolean proveNumberOfComponents(ICard cardOne, ICard cardTwo,
                                             ICard cardThree) {
-        if (cardOne.getNumberOfComponents() == cardTwo.getNumberOfComponents()
-                && cardOne.getNumberOfComponents() == cardThree
-                .getNumberOfComponents()) {
-            return true;
-        } else if (cardOne.getNumberOfComponents() != cardTwo
-                .getNumberOfComponents()
-                && cardOne.getNumberOfComponents() != cardThree
-                .getNumberOfComponents()
-                && cardTwo.getNumberOfComponents() != cardThree
-                .getNumberOfComponents()) {
-            return true;
-        }
-        return false;
+        return proveString(cardOne.getNumberOfComponents(), cardTwo.getNumberOfComponents(),
+                cardThree.getNumberOfComponents());
     }
     /**
      * @param cardOne

@@ -4,6 +4,7 @@ package de.htwg.se.setgame.controller.impl.logic.impl;
 import de.htwg.se.setgame.model.ICard;
 import de.htwg.se.setgame.model.IModelFactory;
 import de.htwg.se.setgame.model.IPack;
+import de.htwg.se.setgame.model.impl.atributte.CardAttribute;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -15,12 +16,7 @@ import java.util.List;
 public class PackProvider {
 
 
-    public static final String[] FORME = {"ovally", "wave", "balk"};
-    public static final String[] COLORS = {"red", "green", "purple"};
-    public static final String[] FILL = {"halffill", "fill", "empty"};
-    public static final int[] NUMBEROFCOMPONET = {1, 2, 3};
     private static final int SIZEOFARRAY = 81;
-    private static final int NUMBEROFEACHCARD = 3;
 
 
     /*Instance variable*/
@@ -51,13 +47,14 @@ public class PackProvider {
     private ICard[] creatCards() {
         ICard list[] = new ICard[SIZEOFARRAY];
         for (int i = 0; i < SIZEOFARRAY; i++) {
-
             list[i] = modelFactory.createCard();
-            list[i].setColor(COLORS[colorIndex]);
-            list[i].setForm(FORME[formeIndex]);
-            list[i].setPanelFilling(FILL[fillgingIndex]);
-            list[i].setPanelFilling(FILL[fillgingIndex]);
-            list[i].setNumberOfComponents(NUMBEROFCOMPONET[numbersIdex]);
+            list[i].setColor(CardAttribute.attributeNameAndFeature.get("COLORS").get(colorIndex));
+            list[i].setForm(CardAttribute.attributeNameAndFeature.get("FORM").get(formeIndex));
+            System.out.println(CardAttribute.attributeNameAndFeature.get("FILL").get(fillgingIndex));
+            list[i].setPanelFilling(CardAttribute.attributeNameAndFeature.get("FILL").get(fillgingIndex));
+            list[i].setPanelFilling(CardAttribute.attributeNameAndFeature.get("FILL").get(fillgingIndex));
+
+            list[i].setNumberOfComponents(CardAttribute.attributeNameAndFeature.get("NUMBEROFCOMPONET").get(numbersIdex));
             setFormedIndex();
 
         }
@@ -71,7 +68,7 @@ public class PackProvider {
      */
     private void setFormedIndex() {
         int t = this.formeIndex + 1;
-        if (t == NUMBEROFEACHCARD) {
+        if (t == (CardAttribute.attributeNameAndFeature.size()-1)) {
             setFillIndex();
             this.formeIndex = 0;
         } else {
@@ -85,7 +82,7 @@ public class PackProvider {
      */
     private void setFillIndex() {
         int t = this.fillgingIndex + 1;
-        if (t == NUMBEROFEACHCARD) {
+        if (t == (CardAttribute.attributeNameAndFeature.size()-1)) {
             this.fillgingIndex = 0;
             setComponentsOfIndex();
         } else {
@@ -99,7 +96,7 @@ public class PackProvider {
      */
     private void setComponentsOfIndex() {
         int t = this.numbersIdex + 1;
-        if (t == NUMBEROFEACHCARD) {
+        if (t == (CardAttribute.attributeNameAndFeature.size()-1)) {
             this.numbersIdex = 0;
             setColorIndex();
         } else {
@@ -112,13 +109,14 @@ public class PackProvider {
      */
     private void setColorIndex() {
         int t = this.colorIndex + 1;
-        if (t == NUMBEROFEACHCARD) {
+        if (t == (CardAttribute.attributeNameAndFeature.size()-1)) {
             this.colorIndex = 0;
         }
         this.colorIndex = t;
 
     }
-    public IPack getPack(){
+
+    public IPack getPack() {
         return this.pack;
     }
     /**
