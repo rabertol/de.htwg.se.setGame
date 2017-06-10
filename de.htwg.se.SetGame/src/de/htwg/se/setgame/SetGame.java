@@ -16,7 +16,7 @@ public final class SetGame {
     private static SetGame instance = null;
 
     public static SetGame getInstance() {
-        return getInstance(true);
+        return getInstance(false);
     }
 
     public static SetGame getInstance(boolean activateGui) {
