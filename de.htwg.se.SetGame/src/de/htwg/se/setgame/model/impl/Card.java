@@ -4,6 +4,8 @@ import de.htwg.se.setgame.model.ACard;
 import de.htwg.se.setgame.model.ICard;
 import de.htwg.se.setgame.model.impl.atributte.CardAttribute;
 
+import java.util.Map;
+
 /**
  * @author David Simon & Raina Bertolini
  * 

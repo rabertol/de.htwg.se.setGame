@@ -1,5 +1,7 @@
 package de.htwg.se.setgame.model;
 
+import java.util.Map;
+
 /**
  * Created by David on 15.04.15.
  */
@@ -28,7 +30,6 @@ public interface IModelFactory {
      * @return new Card
      */
     ICard createCard();
-
     /**
      *
      * @return new Player
