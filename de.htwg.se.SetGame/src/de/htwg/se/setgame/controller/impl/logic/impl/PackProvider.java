@@ -16,7 +16,7 @@ import java.util.List;
 public class PackProvider {
 
 
-    private static final int SIZEOFARRAY = 81;
+    private static final int SIZEOFARRAY = 50;
 
 
     /*Instance variable*/
@@ -33,6 +33,7 @@ public class PackProvider {
 
     public PackProvider(IModelFactory modelFactory) {
         this.modelFactory = modelFactory;
+
         this.pack = modelFactory.createPack();
         List<ICard> cards = new LinkedList<ICard>();
         cards = Arrays.asList(creatCards());
@@ -46,6 +47,10 @@ public class PackProvider {
      */
     private ICard[] creatCards() {
         ICard list[] = new ICard[SIZEOFARRAY];
+
+        //TODO: Change Pack Provider!!!
+
+
         for (int i = 0; i < SIZEOFARRAY; i++) {
             list[i] = modelFactory.createCard();
             list[i].setColor(CardAttribute.attributeNameAndFeature.get("COLORS").get(colorIndex));

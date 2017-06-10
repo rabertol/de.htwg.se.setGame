@@ -138,7 +138,7 @@ public class TextUI implements IObserver {
 
 		controller.isASetForController(cardOne, cardTwo, cardThree, player);
 		logger.info(newLine + "Congratilations it is a SET!! ! size == "
-                + (controller.getField().getCardsInField().size()) + controller.getPack().getPack().size());
+                + (controller.getCardinGame().size()));
 
     }
 
