@@ -1,64 +1,47 @@
 package de.htwg.se.setgame.model;
 
-import de.htwg.se.setgame.util.persistence.couchdb.PersistentCard;
-import org.codehaus.jackson.map.annotate.JsonDeserialize;
-
-@JsonDeserialize(as = PersistentCard.class)
 public interface ICard {
-	 /**
-	 * @return colors
-	 */
-	String getColor();
-
-
 	 /**
 	 * @return form
 	 */
 	String getForm();
-
-
-	 /**
-	 * @return filling
-	 */
-	String getPanelFilling();
-
-	 /**
-	 * @return number of components
-	 */
-	String getNumberOfComponents();
-
-	 /**
-	 * @return srintg methode
-	 */
-	String toString();
-
     /**
      *
-     * @param form set form of card
+     * @param form of card
      */
     void setForm(String form);
-
+	 /**
+	 * @return numberOfComponents
+	 */
+	String getNumberOfComponents();
     /**
      *
-     * @param panelFilling set filling of Card
-     */
-    void setPanelFilling(String panelFilling);
-
-    /**
-     *
-     * @param numberOfComponents number of components
+     * @param numberOfComponents of card
      */
     void setNumberOfComponents(String numberOfComponents);
-
+	 /**
+	 * @return color
+	 */
+	String getColor();
     /**
      *
      * @param color of card
      */
     void setColor(String color);
+	 /**
+	 * @return bla
+	 */
+	String getBla();
     /**
-	 * @param card 
+     *
+     * @param bla of card
+     */
+    void setBla(String bla);
+    /**
+	 * @param card
 	 * @return true if card is the same
 	 */
 	boolean compareTo(ICard card);
 
 }
+

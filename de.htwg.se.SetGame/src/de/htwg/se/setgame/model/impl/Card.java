@@ -1,141 +1,85 @@
 package de.htwg.se.setgame.model.impl;
-
-import de.htwg.se.setgame.model.ACard;
 import de.htwg.se.setgame.model.ICard;
-import de.htwg.se.setgame.model.impl.atributte.CardAttribute;
-
-import java.util.Map;
-
-/**
- * @author David Simon & Raina Bertolini
- * 
- */
-
-public class Card extends ACard {
-	private String color;
+public class Card implements ICard {
 	private String form;
-	private String panelFilling;
-	private String anz;
-
-
-    public Card(){
-
-    }
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.htwg.se.setgame.modell.impl.ICard#getColor()
+	private String numberOfComponents;
+	private String color;
+	private String bla;
+	 /**
+	 * @return form
 	 */
 	@Override
-	public String getColor() {
-		return color;
+	public String getForm(){
+		return this.form;
 	}
-
-	/**
-	 * @param color
-	 *            set the color of a card
-	 */
+    /**
+     *
+     * @param form of card
+     */
     @Override
-	public void setColor(String color) {
-
-			this.color = color;
-
-
+    public void setForm(String form){
+    	this. form =  form;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.htwg.se.setgame.modell.impl.ICard#getFomr()
+	 /**
+	 * @return numberOfComponents
 	 */
 	@Override
-	public String getForm() {
-		return form;
+	public String getNumberOfComponents(){
+		return this.numberOfComponents;
 	}
-
-	/**
-	 * @param form
-	 *            set the form of the Card
-	 * @throws IllegalArgumentException
-	 *             if the form is not allowed
-	 */
+    /**
+     *
+     * @param numberOfComponents of card
+     */
     @Override
-	public void setForm(String form) {
-			this.form = form;
-
+    public void setNumberOfComponents(String numberOfComponents){
+    	this. numberOfComponents =  numberOfComponents;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.htwg.se.setgame.modell.impl.ICard#getPanelFilling()
+	 /**
+	 * @return color
 	 */
 	@Override
-	public String getPanelFilling() {
-		return panelFilling;
+	public String getColor(){
+		return this.color;
 	}
-
-	/**
-	 * @param panelFilling
-	 *            filling of the card
-	 * @throws IllegalArgumentException
-	 *             if filling is not allowed
-	 */
+    /**
+     *
+     * @param color of card
+     */
     @Override
-	public void setPanelFilling(String panelFilling) {
-
-			this.panelFilling = panelFilling;
-
-
+    public void setColor(String color){
+    	this. color =  color;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.htwg.se.setgame.modell.impl.ICard#getNumberOfComponents()
+	 /**
+	 * @return bla
 	 */
-	public String getNumberOfComponents() {
-		return anz;
+	@Override
+	public String getBla(){
+		return this.bla;
 	}
-
-	/**
-	 * @param numberOfComponents
-	 * @throws IllegalArgumentException
-	 *             if numberOfComponents is not allowed
-	 */
+    /**
+     *
+     * @param bla of card
+     */
     @Override
-	public void setNumberOfComponents(String numberOfComponents) {
-
-			this.anz = numberOfComponents;
-
-
+    public void setBla(String bla){
+    	this. bla =  bla;
 	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.htwg.se.setgame.modell.impl.ICard#toString()
+    /**
+	 * @param card 
+	 * @return true if card is the same
 	 */
 	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("|" + this.color + "| \n " + "|" + this.form + "| \n " + "|"
-				+ this.panelFilling + "| \n " + "|" + this.anz + "|\n");
-		return sb.toString();
-	}
-
-
-
-	@Override
-	public boolean compareTo(ICard card) {
-
-		if (this.color.equals(card.getColor()) && this.anz.equals(card.getNumberOfComponents())
-				&& this.form.equals(card.getForm())
-				&& this.panelFilling.equals(card.getPanelFilling())) {
+	public boolean compareTo(ICard card){
+		if (
+		this.form.equals(card.getForm()) && 
+		this.numberOfComponents.equals(card.getNumberOfComponents()) && 
+		this.color.equals(card.getColor()) && 
+		this.bla.equals(card.getBla()) ) {
 			return true;
 		}
 		return false;
-
 	}
+
 }
+

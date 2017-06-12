@@ -19,14 +19,11 @@ public class PackProvider {
     private IPack pack;
     private List<ICard> results = new LinkedList<>();
     private int count = 0;
-
     /**
      * Construct for card
      */
-
     public PackProvider(IModelFactory modelFactory) {
         this.modelFactory = modelFactory;
-
         this.pack = modelFactory.createPack();
         List<ICard> cards = new LinkedList<ICard>();
         cards = Arrays.asList(creatCards());
@@ -34,32 +31,27 @@ public class PackProvider {
             this.pack.setPack(cards);
         }
     }
-
+    
     /**
      * @return the finish pack of the Game
      */
     private ICard[] creatCards() {
         ICard list[] = new ICard[CardAttribute.FIELDSIZE];
-
         int numberOfAttribute = CardAttribute.attributeNameAndFeature.values().size();
-
         createCards(new ArrayList(CardAttribute.attributeNameAndFeature.keySet()), new ArrayList(CardAttribute.attributeNameAndFeature.values()),
                 new HashMap<>(), numberOfAttribute - 1);
         for (int i = 0; i < list.length; i++) {
             list[i] = results.get(i);
         }
-
         return list;
-
     }
-
     private void createCards(List<String> attributeName, List<List<String>> eingeschaften, Map<String, String> attribute, int level) {
         if (level == -1) {
-            ICard card = modelFactory.createCard();
-            card.setColor(attribute.get("COLORS"));
-            card.setForm(attribute.get("FORM"));
-            card.setNumberOfComponents(attribute.get("NUMBEROFCOMPONET"));
-            card.setPanelFilling(attribute.get("FILL"));
+			ICard card = modelFactory.createCard();
+			card.setForm(attribute.get("form"));
+			card.setNumberOfComponents(attribute.get("numberOfComponents"));
+			card.setColor(attribute.get("color"));
+			card.setBla(attribute.get("bla"));
             results.add(card);
         } else {
             for (String s : eingeschaften.get(level)) {
@@ -67,7 +59,6 @@ public class PackProvider {
                 createCards(attributeName, eingeschaften, attribute, level - 1);
             }
         }
-
     }
 
 
@@ -79,10 +70,4 @@ public class PackProvider {
      */
 
 }
-
-
-
-
-
-
 

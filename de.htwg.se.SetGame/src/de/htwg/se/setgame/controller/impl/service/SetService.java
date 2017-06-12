@@ -7,17 +7,18 @@ import de.htwg.se.setgame.model.ICard;
  */
 public class SetService {
 
-    public SetService(){
+    public SetService() {
 
     }
+
     /**
-     * @param stringOne color
-     * @param stringTwo form
+     * @param stringOne   color
+     * @param stringTwo   form
      * @param stringThree filling
      * @return
      */
     public boolean proveString(String stringOne, String stringTwo,
-                                String stringThree) {
+                               String stringThree) {
         if (stringOne.compareTo(stringTwo) == 0
                 && stringOne.compareTo(stringThree) == 0
                 && stringTwo.compareTo(stringThree) == 0) {
@@ -29,59 +30,19 @@ public class SetService {
         }
         return false;
     }
-    /**
-     * @param cardOne
-     * @param cardTwo
-     * @param cardThree
-     * @return
-     */
-    public boolean proveNumberOfComponents(ICard cardOne, ICard cardTwo,
-                                            ICard cardThree) {
-        return proveString(cardOne.getNumberOfComponents(), cardTwo.getNumberOfComponents(),
-                cardThree.getNumberOfComponents());
-    }
-    /**
-     * @param cardOne
-     * @param cardTwo
-     * @param cardThree
-     * @return
-     */
-    public boolean proveForm(ICard cardOne, ICard cardTwo, ICard cardThree) {
-        return proveString(cardOne.getForm(), cardTwo.getForm(),
-                cardThree.getForm());
-    }
-
+    
     public boolean isASet(ICard cardOne, ICard cardTwo, ICard cardThree) {
-        if(proveColor(cardOne, cardTwo, cardThree)
-                && proveFilling(cardOne, cardTwo, cardThree)
-                && proveNumberOfComponents(cardOne, cardTwo, cardThree)
-                && proveForm(cardOne, cardTwo, cardThree)){
-            return true;
-        }
+		if (
+		proveString(cardOne.getForm(), cardTwo.getForm(), cardThree.getForm() ) && 
+		proveString(cardOne.getNumberOfComponents(), cardTwo.getNumberOfComponents(), cardThree.getNumberOfComponents() ) && 
+		proveString(cardOne.getColor(), cardTwo.getColor(), cardThree.getColor() ) && 
+		proveString(cardOne.getBla(), cardTwo.getBla(), cardThree.getBla() ) ) {
+			return true;
+		}
         return false;
     }
 
-    /**
-     * @param cardOne
-     * @param cardTwo
-     * @param cardThree
-     * @return
-     */
-    private boolean proveColor(ICard cardOne, ICard cardTwo, ICard cardThree) {
-        return proveString(cardOne.getColor(), cardTwo.getColor(),
-                cardThree.getColor());
-    }
 
-
-
-    /**
-     * @param cardOne
-     * @param cardTwo
-     * @param cardThree
-     * @return
-     */
-    private boolean proveFilling(ICard cardOne, ICard cardTwo, ICard cardThree) {
-        return proveString(cardOne.getPanelFilling(),
-                cardTwo.getPanelFilling(), cardThree.getPanelFilling());
-    }
 }
+
+

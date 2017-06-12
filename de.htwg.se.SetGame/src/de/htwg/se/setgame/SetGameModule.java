@@ -10,8 +10,6 @@ import de.htwg.se.setgame.controller.impl.ki.KIEasy;
 import de.htwg.se.setgame.controller.impl.ki.KIMedium;
 import de.htwg.se.setgame.model.IModelFactory;
 import de.htwg.se.setgame.model.impl.ModelFactory;
-import de.htwg.se.setgame.util.persistence.IGameDao;
-import de.htwg.se.setgame.util.persistence.db4o.GameDao;
 
 
 public class SetGameModule extends AbstractModule {
@@ -20,7 +18,6 @@ public class SetGameModule extends AbstractModule {
 	protected void configure() {
 		bind(IModelFactory.class).to(ModelFactory.class);
 		bind(IController.class).to(SetController.class);
-        bind(IGameDao.class).to(GameDao.class);
         Multibinder<IKiPlugin> plugins =
                 Multibinder.newSetBinder(binder(), IKiPlugin.class);
         plugins.addBinding().to(KIEasy.class);

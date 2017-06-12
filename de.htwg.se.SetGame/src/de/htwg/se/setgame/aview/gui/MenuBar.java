@@ -22,10 +22,6 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		mExit.addActionListener(this);
 		mNewGame = new JMenuItem("New Game");
 		mNewGame.addActionListener(this);
-		mSaveGame = new JMenuItem("Save Game");
-		mSaveGame.addActionListener(this);
-		mLoadGame = new JMenuItem("Load Game");
-        mLoadGame.addActionListener(this);
         kiEasy = new JMenuItem("Easy");
         kiEasy.addActionListener(this);
         kiHard = new JMenuItem("Hard");
@@ -35,8 +31,6 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
 
         menu.add(mNewGame);
-		menu.add(mSaveGame);
-		menu.add(mLoadGame);
         menu.add(kiEasy);
         menu.add(kiMedium);
         menu.add(kiHard);
@@ -68,11 +62,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	        			+ "Have fun!", "Close", JOptionPane.CLOSED_OPTION);
 	        }else if ( e.getSource() == mExit ){
 	        	exit();
-	        }else if ( e.getSource() == mSaveGame ){
-	        	saveGame();
-	        }else if ( e.getSource() == mLoadGame ){
-	        	loadGame();
-            } else if (e.getSource() == kiEasy) {
+	        } else if (e.getSource() == kiEasy) {
                 kiEasyWay();
 
             } else if (e.getSource() == kiHard) {
@@ -103,20 +93,6 @@ public class MenuBar extends JMenuBar implements ActionListener {
 
     }
 
-    public void saveGame() {
-		String uid = GUI.getController().saveGame(1);
-        JOptionPane.showMessageDialog(null, "Your game is saved under:\n\n" + uid + "\n\nIf you want to continue your game you will need this key.");
-	}
-
-	public void loadGame() {
-		String uid = (String) JOptionPane.showInputDialog(null, "Game token:");
-		if ((uid != null) && (uid.length() > 0)) {
-		    int result = GUI.getController().loadGame(uid);
-		    if (result < 0) {
-		    	JOptionPane.showMessageDialog(null, "No game found under this token.");
-		    }
-		}
-	}
 	
 	public void exit() {
 		if(GUI.getController().getPlayerOnePoints() > GUI.getController().getPlayerTwoPoints()) {

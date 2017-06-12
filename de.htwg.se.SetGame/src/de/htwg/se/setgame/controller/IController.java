@@ -99,19 +99,6 @@ public interface IController extends IObservable {
 	 */
 	IPack getPack();
     List<ICard> getNewPack();
-	/**
-	 * 	save game
-	 * @return 
-	 */
-	String saveGame(int playerNumber);
-
-	/**
-	 * 	load game
-	 * @param uid 
-	 * @return 
-	 */
-	int loadGame(String uid);
-
     /**
     * @param level level of the difficult of KI
     */
