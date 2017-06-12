@@ -19,6 +19,7 @@ public class PackProvider {
     private IPack pack;
     private List<ICard> results = new LinkedList<>();
     private int count = 0;
+
     /**
      * Construct for card
      */
@@ -40,35 +41,34 @@ public class PackProvider {
     private ICard[] creatCards() {
         ICard list[] = new ICard[CardAttribute.FIELDSIZE];
 
-       int numberOfAttribute = CardAttribute.attributeNameAndFeature.values().size();
-        List listC = new ArrayList(CardAttribute.attributeNameAndFeature.values());
-        List listK = new ArrayList(CardAttribute.attributeNameAndFeature.keySet());
+        int numberOfAttribute = CardAttribute.attributeNameAndFeature.values().size();
 
-        rekursiveFunction(listK,listC,new HashMap<>(), numberOfAttribute-1);
-        for(int i = 0 ; i < list.length; i++){
+        createCards(new ArrayList(CardAttribute.attributeNameAndFeature.keySet()), new ArrayList(CardAttribute.attributeNameAndFeature.values()),
+                new HashMap<>(), numberOfAttribute - 1);
+        for (int i = 0; i < list.length; i++) {
             list[i] = results.get(i);
         }
 
         return list;
 
     }
-    private void rekursiveFunction(List<String> attributeName, List<List<String>> eingeschaften, Map<String,String> attribute, int level){
-        if(level == -1){
+
+    private void createCards(List<String> attributeName, List<List<String>> eingeschaften, Map<String, String> attribute, int level) {
+        if (level == -1) {
             ICard card = modelFactory.createCard();
             card.setColor(attribute.get("COLORS"));
             card.setForm(attribute.get("FORM"));
             card.setNumberOfComponents(attribute.get("NUMBEROFCOMPONET"));
             card.setPanelFilling(attribute.get("FILL"));
             results.add(card);
-        }else {
+        } else {
             for (String s : eingeschaften.get(level)) {
-                attribute.put(attributeName.get(level), s );
-                rekursiveFunction(attributeName,eingeschaften ,attribute, level - 1);
+                attribute.put(attributeName.get(level), s);
+                createCards(attributeName, eingeschaften, attribute, level - 1);
             }
         }
 
     }
-
 
 
     public IPack getPack() {
