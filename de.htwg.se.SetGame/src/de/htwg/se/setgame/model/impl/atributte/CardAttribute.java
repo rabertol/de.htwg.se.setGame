@@ -10,20 +10,20 @@ public final class CardAttribute {
     }
     public static int FIELDSIZE = 1;
     public static Map<String,List<String>> attributeNameAndFeature;
-    private static final String[] form = {"wave", "balk"};
+    private static final String[] form = {"elipse", "oval", "retangle", "circle"};
+    private static final String[] color = {"red", "green", "purple", "blue"};
     private static final String[] numberOfComponents = {"one", "two", "three"};
-    private static final String[] color = {"red", "blue", "green", "yellow"};
-    private static final String[] bla = {"bla", "blabla", "blablabla"};
+    private static final String[] texture = {"twoD", "threeD"};
     static {
-        attributeNameAndFeature = new HashMap<>();
+    	attributeNameAndFeature = new HashMap<>();
         addNewAttribute(form, "form");
         addToFieldSize(form);
-        addNewAttribute(numberOfComponents, "numberOfComponents");
-        addToFieldSize(numberOfComponents);
         addNewAttribute(color, "color");
         addToFieldSize(color);
-        addNewAttribute(bla, "bla");
-        addToFieldSize(bla);
+        addNewAttribute(numberOfComponents, "numberOfComponents");
+        addToFieldSize(numberOfComponents);
+        addNewAttribute(texture, "texture");
+        addToFieldSize(texture);
     }
     private static void addNewAttribute(String[] array,String name){
         attributeNameAndFeature.put(name, new LinkedList<String>());

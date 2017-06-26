@@ -1,47 +1,45 @@
 package de.htwg.se.setgame.model;
-
 public interface ICard {
-	 /**
-	 * @return form
-	 */
+/**
+* @return form
+ */
 	String getForm();
-    /**
+	/**
      *
      * @param form of card
      */
     void setForm(String form);
-	 /**
-	 * @return numberOfComponents
-	 */
-	String getNumberOfComponents();
-    /**
-     *
-     * @param numberOfComponents of card
-     */
-    void setNumberOfComponents(String numberOfComponents);
-	 /**
-	 * @return color
-	 */
+/**
+* @return color
+ */
 	String getColor();
-    /**
+	/**
      *
      * @param color of card
      */
     void setColor(String color);
-	 /**
-	 * @return bla
-	 */
-	String getBla();
-    /**
+/**
+* @return numberOfComponents
+ */
+	String getNumberOfComponents();
+	/**
      *
-     * @param bla of card
+     * @param numberOfComponents of card
      */
-    void setBla(String bla);
+    void setNumberOfComponents(String numberOfComponents);
+/**
+* @return texture
+ */
+	String getTexture();
+	/**
+     *
+     * @param texture of card
+     */
+    void setTexture(String texture);
     /**
-	 * @param card
+	 * @param card 
 	 * @return true if card is the same
 	 */
 	boolean compareTo(ICard card);
 
 }
-

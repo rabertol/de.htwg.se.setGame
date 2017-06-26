@@ -49,9 +49,9 @@ public class PackProvider {
         if (level == -1) {
 			ICard card = modelFactory.createCard();
 			card.setForm(attribute.get("form"));
-			card.setNumberOfComponents(attribute.get("numberOfComponents"));
 			card.setColor(attribute.get("color"));
-			card.setBla(attribute.get("bla"));
+			card.setNumberOfComponents(attribute.get("numberOfComponents"));
+			card.setTexture(attribute.get("texture"));
             results.add(card);
         } else {
             for (String s : eingeschaften.get(level)) {
@@ -60,8 +60,6 @@ public class PackProvider {
             }
         }
     }
-
-
     public IPack getPack() {
         return this.pack;
     }

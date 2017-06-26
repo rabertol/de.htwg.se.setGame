@@ -4,6 +4,7 @@ import de.htwg.se.setgame.model.ICard;
 import de.htwg.se.setgame.model.IField;
 import de.htwg.se.setgame.model.IModelFactory;
 import de.htwg.se.setgame.model.IPack;
+import de.htwg.se.setgame.model.impl.atributte.CardAttribute;
 
 import java.util.*;
 
@@ -14,7 +15,6 @@ public class GameProvider {
 
 
     protected static final int INITIALVALUEOFFIELD = 12;
-    private static final int MAX = 81;
     private static final int ONE = 1;
     private static final int NUMBERFORONELINE = 3;
     /**
@@ -82,12 +82,12 @@ public class GameProvider {
          * @return filled array
      */
     public Map<Integer, Integer> rand() {
-            int[] tem = new int[MAX];
+            int[] tem = new int[CardAttribute.FIELDSIZE];
             boolean b;
-            for (int key = 0; key < MAX; key++) {
+            for (int key = 0; key < CardAttribute.FIELDSIZE; key++) {
                 b = true;
-                int element = (int) (Math.random() * MAX + ONE);
-                for (int t = 0; t < MAX; t++) {
+                int element = (int) (Math.random() * CardAttribute.FIELDSIZE + ONE);
+                for (int t = 0; t < CardAttribute.FIELDSIZE; t++) {
                     if (element == tem[t] && key > 0) {
                         key = key - 1;
                         b = false;

@@ -1,10 +1,7 @@
 package de.htwg.se.setgame.model.impl;
 import de.htwg.se.setgame.model.ICard;
 public class Card implements ICard {
-	private String form;
-	private String numberOfComponents;
-	private String color;
-	private String bla;
+	private String form;	private String color;	private String numberOfComponents;	private String texture;
 	 /**
 	 * @return form
 	 */
@@ -12,28 +9,13 @@ public class Card implements ICard {
 	public String getForm(){
 		return this.form;
 	}
-    /**
-     *
-     * @param form of card
-     */
-    @Override
-    public void setForm(String form){
-    	this. form =  form;
-	}
-	 /**
-	 * @return numberOfComponents
-	 */
+	/**
+	 *
+	 * @param form of card
+	*/
 	@Override
-	public String getNumberOfComponents(){
-		return this.numberOfComponents;
-	}
-    /**
-     *
-     * @param numberOfComponents of card
-     */
-    @Override
-    public void setNumberOfComponents(String numberOfComponents){
-    	this. numberOfComponents =  numberOfComponents;
+	public void setForm(String form){
+		this. form =  form;
 	}
 	 /**
 	 * @return color
@@ -42,28 +24,43 @@ public class Card implements ICard {
 	public String getColor(){
 		return this.color;
 	}
-    /**
-     *
-     * @param color of card
-     */
-    @Override
-    public void setColor(String color){
-    	this. color =  color;
+	/**
+	 *
+	 * @param color of card
+	*/
+	@Override
+	public void setColor(String color){
+		this. color =  color;
 	}
 	 /**
-	 * @return bla
+	 * @return numberOfComponents
 	 */
 	@Override
-	public String getBla(){
-		return this.bla;
+	public String getNumberOfComponents(){
+		return this.numberOfComponents;
 	}
-    /**
-     *
-     * @param bla of card
-     */
-    @Override
-    public void setBla(String bla){
-    	this. bla =  bla;
+	/**
+	 *
+	 * @param numberOfComponents of card
+	*/
+	@Override
+	public void setNumberOfComponents(String numberOfComponents){
+		this. numberOfComponents =  numberOfComponents;
+	}
+	 /**
+	 * @return texture
+	 */
+	@Override
+	public String getTexture(){
+		return this.texture;
+	}
+	/**
+	 *
+	 * @param texture of card
+	*/
+	@Override
+	public void setTexture(String texture){
+		this. texture =  texture;
 	}
     /**
 	 * @param card 
@@ -73,9 +70,9 @@ public class Card implements ICard {
 	public boolean compareTo(ICard card){
 		if (
 		this.form.equals(card.getForm()) && 
-		this.numberOfComponents.equals(card.getNumberOfComponents()) && 
 		this.color.equals(card.getColor()) && 
-		this.bla.equals(card.getBla()) ) {
+		this.numberOfComponents.equals(card.getNumberOfComponents()) && 
+		this.texture.equals(card.getTexture()) ) {
 			return true;
 		}
 		return false;

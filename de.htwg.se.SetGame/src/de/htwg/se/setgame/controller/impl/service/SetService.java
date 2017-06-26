@@ -32,17 +32,10 @@ public class SetService {
     }
     
     public boolean isASet(ICard cardOne, ICard cardTwo, ICard cardThree) {
-		if (
-		proveString(cardOne.getForm(), cardTwo.getForm(), cardThree.getForm() ) && 
-		proveString(cardOne.getNumberOfComponents(), cardTwo.getNumberOfComponents(), cardThree.getNumberOfComponents() ) && 
-		proveString(cardOne.getColor(), cardTwo.getColor(), cardThree.getColor() ) && 
-		proveString(cardOne.getBla(), cardTwo.getBla(), cardThree.getBla() ) ) {
+		if (proveString(cardOne.getForm(), cardTwo.getForm(), cardThree.getForm() ) && proveString(cardOne.getColor(), cardTwo.getColor(), cardThree.getColor() ) && proveString(cardOne.getNumberOfComponents(), cardTwo.getNumberOfComponents(), cardThree.getNumberOfComponents() ) && proveString(cardOne.getTexture(), cardTwo.getTexture(), cardThree.getTexture() ) ) {
 			return true;
 		}
         return false;
     }
-
-
 }
-
 
